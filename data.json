@@ -35,14 +35,14 @@
 			"type": "radio",
 			"options": [
 				{
-					"name": "Enable extended globs",
-					"code": "setopt EXTENDED_GLOB",
-					"enabled": true
-				},
-				{
 					"name": "Disable extended globs",
 					"code": null,
 					"enabled": false
+				},
+				{
+					"name": "Enable extended globs",
+					"code": "setopt EXTENDED_GLOB",
+					"enabled": true
 				}
 			]
 		},
