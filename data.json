@@ -47,17 +47,17 @@
 			]
 		},
 		{
-			"title": "Extended glob: `^`",
-			"description": "The `^` character ...",
+			"title": "Extended glob: ^",
+			"description": "The ^ character ...",
 			"requires": "extglob",
 			"type": "radio",
 			"options": [
 				{
-					"name": "Leave `^` enabled",
+					"name": "Leave ^ enabled",
 					"code": null
 				},
 				{
-					"name": "Disable `^` for extended globbing",
+					"name": "Disable ^ for extended globbing",
 					"code": "disable -p '^'"
 				}
 			]
