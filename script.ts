@@ -6,6 +6,12 @@ interface Choice {
 	requires?: string,
 }
 
+interface NumberChoice extends Choice {
+	type: "number",
+	default: number,
+	code: string,
+};
+
 interface RadioChoice extends Choice {
 	type: "radio",
 	options: {
@@ -15,7 +21,7 @@ interface RadioChoice extends Choice {
 	}[],
 };
 
-type ChoiceType = RadioChoice;
+type ChoiceType = NumberChoice | RadioChoice;
 
 interface Data {
 	choices: ChoiceType[],
@@ -40,7 +46,16 @@ async function init() {
 		title.textContent = choice.title;
 		choice_div.append(title);
 
-		if (choice.type == "radio") {
+		if (choice.type == "number") {
+				const input = document.createElement("input");
+				input.type = "number";
+				input.id = choice_idx.toString();
+				input.name = choice_idx.toString();
+				input.value = choice.default.toString();
+				input.addEventListener("input", update);
+				choice_div.append(input);
+
+		} else if (choice.type == "radio") {
 			choice.options.forEach((option, option_idx) => {
 				const option_div = document.createElement("div");
 				option_div.className = "option";
@@ -89,7 +104,12 @@ function update() {
 			return;
 		}
 
-		if (choice.type == "radio") {
+		if (choice.type == "number") {
+			const input = document.querySelector(`input[name="${choice_idx}"]`) as HTMLInputElement;
+			value += choice.code.replace(/{}/g, input.value);
+			value += "\n";
+
+		} else if (choice.type == "radio") {
 			const selected_input = document.querySelector(`input[name="${choice_idx}"]:checked`) as HTMLInputElement;
 			const chosen_option = choice.options[parseInt(selected_input.value)];
 			if (chosen_option.code != null) {
