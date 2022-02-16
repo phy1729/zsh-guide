@@ -157,7 +157,7 @@
 			"options": [
 				{
 					"name": "Disable multios",
-					"code": "setopt MULTIOS"
+					"code": "setopt NO_MULTIOS"
 				},
 				{
 					"name": "Enable multios",
