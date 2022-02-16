@@ -99,6 +99,14 @@
 			]
 		},
 		{
+			"title": "History: size",
+			"description": "How many events should be kept in history?",
+			"requires": "history",
+			"type": "number",
+			"default": 500,
+			"code": "SAVEHIST={}"
+		},
+		{
 			"title": "History: space prefix",
 			"requires": "history",
 			"type": "radio",
