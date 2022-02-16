@@ -31,21 +31,25 @@
 		},
 		{
 			"title": "Extended glob",
+			"provides": "extglob",
 			"type": "radio",
 			"options": [
 				{
 					"name": "Enable extended globs",
-					"code": "setopt EXTENDED_GLOB"
+					"code": "setopt EXTENDED_GLOB",
+					"enabled": true
 				},
 				{
 					"name": "Disable extended globs",
-					"code": null
+					"code": null,
+					"enabled": false
 				}
 			]
 		},
 		{
 			"title": "Extended glob: `^`",
 			"description": "The `^` character ...",
+			"requires": "extglob",
 			"type": "radio",
 			"options": [
 				{
@@ -74,24 +78,29 @@
 		},
 		{
 			"title": "Save history",
+			"provides": "history",
 			"type": "radio",
 			"options": [
 				{
 					"name": "Save history to .zsh_history in your home folder",
-					"code": "HISTFILE=$HOME/.zsh_history"
+					"code": "HISTFILE=$HOME/.zsh_history",
+					"enabled": true
 				},
 				{
 					"name": "Save history to XDG compliant location",
-					"code": "HISTFILE=${XDG_STATE_HOME:-$HOME/.local/state}/zsh/histfile"
+					"code": "HISTFILE=${XDG_STATE_HOME:-$HOME/.local/state}/zsh/histfile",
+					"enabled": true
 				},
 				{
 					"name": "Do not save history",
-					"code": null
+					"code": null,
+					"enabled": false
 				}
 			]
 		},
 		{
 			"title": "History: space prefix",
+			"requires": "history",
 			"type": "radio",
 			"options": [
 				{
@@ -106,6 +115,7 @@
 		},
 		{
 			"title": "History: ignore duplicates",
+			"requires": "history",
 			"type": "radio",
 			"options": [
 				{
@@ -124,6 +134,7 @@
 		},
 		{
 			"title": "History: sharing",
+			"requires": "history",
 			"type": "radio",
 			"options": [
 				{

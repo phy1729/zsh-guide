@@ -2,6 +2,8 @@ interface Choice {
 	title: string,
 	description?: string,
 	type: string,
+	provides?: string,
+	requires?: string,
 }
 
 interface RadioChoice extends Choice {
@@ -9,6 +11,7 @@ interface RadioChoice extends Choice {
 	options: {
 		name: string,
 		code: string,
+		enabled?: boolean,
 	}[],
 };
 
@@ -72,14 +75,30 @@ async function init() {
 function update() {
 	const out = document.getElementById("out");
 	let value = "";
+	const features = new Map<string, boolean>();
 
 	data.choices.forEach((choice, choice_idx) => {
+		let disabled = false;
+		if (choice.requires && !features.get(choice.requires)) {
+			disabled = true;
+		}
+		document.querySelectorAll(`input[name="${choice_idx}"]`).forEach(e => {
+			(e as HTMLInputElement).disabled = disabled;
+		});
+		if (disabled) {
+			return;
+		}
+
 		if (choice.type == "radio") {
 			const selected_input = document.querySelector(`input[name="${choice_idx}"]:checked`) as HTMLInputElement;
 			const chosen_option = choice.options[parseInt(selected_input.value)];
 			if (chosen_option.code != null) {
 				value += chosen_option.code;
 				value += "\n";
+			}
+
+			if (choice.provides) {
+				features.set(choice.provides, chosen_option.enabled);
 			}
 		}
 	});
