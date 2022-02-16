@@ -1,0 +1,158 @@
+{
+	"choices": [
+		{
+			"title": "Keymap",
+			"description": "",
+			"type": "radio",
+			"options": [
+				{
+					"name": "Emacs",
+					"code": "bindkey -e"
+				},
+				{
+					"name": "Vi",
+					"code": "bindkey -v"
+				}
+			]
+		},
+		{
+			"title": "Completion",
+			"type": "radio",
+			"options": [
+				{
+					"name": "Enable completion",
+					"code": "autoload -Uz compinit && compinit"
+				},
+				{
+					"name": "Leave completion disabled",
+					"code": null
+				}
+			]
+		},
+		{
+			"title": "Extended glob",
+			"type": "radio",
+			"options": [
+				{
+					"name": "Enable extended globs",
+					"code": "setopt EXTENDED_GLOB"
+				},
+				{
+					"name": "Disable extended globs",
+					"code": null
+				}
+			]
+		},
+		{
+			"title": "Extended glob: `^`",
+			"description": "The `^` character ...",
+			"type": "radio",
+			"options": [
+				{
+					"name": "Leave `^` enabled",
+					"code": null
+				},
+				{
+					"name": "Disable `^` for extended globbing",
+					"code": "disable -p '^'"
+				}
+			]
+		},
+		{
+			"title": "Clobbering",
+			"type": "radio",
+			"options": [
+				{
+					"name": "Error on a redirections which would overwrite an existing file",
+					"code": "setopt NO_CLOBBER"
+				},
+				{
+					"name": "Allow redirections to overwrite existing files",
+					"code": null
+				}
+			]
+		},
+		{
+			"title": "Save history",
+			"type": "radio",
+			"options": [
+				{
+					"name": "Save history to .zsh_history in your home folder",
+					"code": "HISTFILE=$HOME/.zsh_history"
+				},
+				{
+					"name": "Save history to XDG compliant location",
+					"code": "HISTFILE=${XDG_STATE_HOME:-$HOME/.local/state}/zsh/histfile"
+				},
+				{
+					"name": "Do not save history",
+					"code": null
+				}
+			]
+		},
+		{
+			"title": "History: space prefix",
+			"type": "radio",
+			"options": [
+				{
+					"name": "Do not save commands starting with a space to history",
+					"code": "setopt HIST_IGNORE_SPACE"
+				},
+				{
+					"name": "Save all commands",
+					"code": null
+				}
+			]
+		},
+		{
+			"title": "History: ignore duplicates",
+			"type": "radio",
+			"options": [
+				{
+					"name": "Ignore a duplicate of the previous command",
+					"code": "setopt HIST_IGNORE_DUPS"
+				},
+				{
+					"name": "If a command is a duplicate of any previous command; remove the older copy",
+					"code": "setopt HIST_IGNORE_ALL_DUPS"
+				},
+				{
+					"name": "Save duplicates",
+					"code": null
+				}
+			]
+		},
+		{
+			"title": "History: sharing",
+			"type": "radio",
+			"options": [
+				{
+					"name": "Save commands to history as you run them",
+					"code": "setopt INC_APPEND_HISTORY"
+				},
+				{
+					"name": "Save commands to history as you run them and import the commands run in other terminals into history",
+					"code": "setopt SHARE_HISTORY"
+				},
+				{
+					"name": "Append history items to not overwrite other terminal's history",
+					"code": "setopt APPEND_HISTORY"
+				}
+			]
+		},
+		{
+			"title": "Multios",
+			"type": "radio",
+			"options": [
+				{
+					"name": "Disable multios",
+					"code": "setopt MULTIOS"
+				},
+				{
+					"name": "Enable multios",
+					"code": null
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,14 @@
+{
+	"strict": true,
+	"compilerOptions": {
+		"noEmitOnError": true,
+		"lib": [
+			"es2017",
+			"dom"
+		],
+		"target": "es2017"
+	},
+	"files": [
+		"script.ts"
+	]
+}

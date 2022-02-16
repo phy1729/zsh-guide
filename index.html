@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<style>
+			body {
+				margin: 20px auto;
+				max-width: 600px;
+			}
+
+			div#wrapper {
+			}
+
+			div.choice {
+				margin: 20px;
+				border: 1px solid #00bbff;
+				border-radius: 10px;
+				background-color: #ccf0ff;
+				padding: 20px;
+			}
+
+			span.title {
+				margin: 10px;
+				display: inline-block;
+				width: 100%;
+				text-align: center;
+			}
+
+			div.option {
+				display: inline-block;
+				margin: 3px;
+			}
+
+			pre#out {
+				margin: 20px;
+				border: 1px solid #000000;
+				border-radius: 10px;
+				padding: 20px;
+			}
+		</style>
+		<script src="script.js"></script>
+	</head>
+	<body onload="init();">
+		<div id="wrapper">
+			<form id="form"></form>
+			<pre id="out" onclick="select_out()"></pre>
+		</div>
+	</body>
+</html>
