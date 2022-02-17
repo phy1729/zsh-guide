@@ -1,6 +1,6 @@
 interface Choice {
 	title: string,
-	description?: string,
+	description: string,
 	type: string,
 	provides?: string,
 	requires?: string,
@@ -45,6 +45,11 @@ async function init() {
 		title.className = "title";
 		title.textContent = choice.title;
 		choice_div.append(title);
+
+		const description = document.createElement("span");
+		description.className = "description";
+		description.innerHTML = choice.description;
+		choice_div.append(description);
 
 		if (choice.type == "number") {
 				const input = document.createElement("input");

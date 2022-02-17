@@ -2,7 +2,7 @@
 	"choices": [
 		{
 			"title": "Keymap",
-			"description": "",
+			"description": "The keymap sets the default key bindings. Unless you know you prefer vi keybindings in your shell, you should choose emacs (even if you use vi(m)).",
 			"type": "radio",
 			"options": [
 				{
@@ -17,6 +17,7 @@
 		},
 		{
 			"title": "Completion",
+			"description": "zsh is known for its powerful completion system. However it must be enabled. You probably want this.",
 			"type": "radio",
 			"options": [
 				{
@@ -31,6 +32,7 @@
 		},
 		{
 			"title": "Extended glob",
+			"description": "When extended globs are enabled, the # ~ and ^ characters can also be used for globbing and globbing flags are enabled. While these features are useful, they can be suprising to users used to other shells.",
 			"provides": "extglob",
 			"type": "radio",
 			"options": [
@@ -48,7 +50,7 @@
 		},
 		{
 			"title": "Extended glob: ^",
-			"description": "The ^ character ...",
+			"description": "The ^ extended glob can be troublesome in particular with <code>git show HEAD^</code>. While <code>git show HEAD~</code> is generally intended, some users prefer to disable the ^ glob.",
 			"requires": "extglob",
 			"type": "radio",
 			"options": [
@@ -64,6 +66,7 @@
 		},
 		{
 			"title": "Clobbering",
+			"description": "By default redirections can overwrite existing files which can cause unintentional loss of data. Disabling the clobber option makes zsh error on these redirections unless <code>&gt;|</code> is used.",
 			"type": "radio",
 			"options": [
 				{
@@ -78,6 +81,7 @@
 		},
 		{
 			"title": "Save history",
+			"description": "History allows you to recall previous commands. Where should history be saved if at all?",
 			"provides": "history",
 			"type": "radio",
 			"options": [
@@ -108,6 +112,7 @@
 		},
 		{
 			"title": "History: space prefix",
+			"description": "On occasion you may want to exclude a single event from history. With the hist ignore space option enabled, you can start the command with a space and the command will not be saved. (It will be kept in memory until the next command is entered in case you made a typo and need to edit the line. It will disappear after that.)",
 			"requires": "history",
 			"type": "radio",
 			"options": [
@@ -123,6 +128,7 @@
 		},
 		{
 			"title": "History: ignore duplicates",
+			"description": "Some users prefer to omit duplicate events from history. You can either omit a command if it is the same as the command you just ran or look though all history for duplicates and save the most recently run version.",
 			"requires": "history",
 			"type": "radio",
 			"options": [
@@ -142,6 +148,7 @@
 		},
 		{
 			"title": "History: sharing",
+			"description": "When you have multiple shells running at once, history can be combined in a few different ways.",
 			"requires": "history",
 			"type": "radio",
 			"options": [
@@ -161,6 +168,7 @@
 		},
 		{
 			"title": "Multios",
+			"description": "Multios is a zsh feature where if a command has multiple output redirections, the command's output is copied to each rather than just the last one. Similarly for input redirections, each input is read in turn. This option often results in suprising and hard to diagnose effects.",
 			"type": "radio",
 			"options": [
 				{
