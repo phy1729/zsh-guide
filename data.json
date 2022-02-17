@@ -65,6 +65,29 @@
 			]
 		},
 		{
+			"title": "Nomatch",
+			"description": "By default zsh will error if a glob has no matches. This is the safest course of action as globs that should be passed literally into commands should be quoted. However it does differ from the bash behavior to pass globs through on no match.",
+			"type": "radio",
+			"options": [
+				{
+					"name": "Error if a glob has no matches",
+					"code": null
+				},
+				{
+					"name": "Pass the glob though as is if there are no matches",
+					"code": "setopt NO_NOMATCH"
+				},
+				{
+					"name": "Omit a glob if it has no matches, but error if all globs have no matches",
+					"code": "setopt CSH_NULL_GLOB"
+				},
+				{
+					"name": "Omit a glob if it has no matches",
+					"code": "setopt NULL_GLOB"
+				}
+			]
+		},
+		{
 			"title": "Clobbering",
 			"description": "By default redirections can overwrite existing files which can cause unintentional loss of data. Disabling the clobber option makes zsh error on these redirections unless <code>&gt;|</code> is used.",
 			"type": "radio",
