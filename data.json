@@ -131,7 +131,7 @@
 					"code": "setopt HIST_IGNORE_DUPS"
 				},
 				{
-					"name": "If a command is a duplicate of any previous command; remove the older copy",
+					"name": "If a command is a duplicate of any previous command, remove the older copy",
 					"code": "setopt HIST_IGNORE_ALL_DUPS"
 				},
 				{
