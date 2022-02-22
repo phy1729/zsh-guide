@@ -1,21 +1,6 @@
 {
 	"choices": [
 		{
-			"title": "Keymap",
-			"description": "The keymap sets the default key bindings. Unless you know you prefer vi keybindings in your shell, you should choose emacs (even if you use vi(m)).",
-			"type": "radio",
-			"options": [
-				{
-					"name": "Emacs",
-					"code": "bindkey -e"
-				},
-				{
-					"name": "Vi",
-					"code": "bindkey -v"
-				}
-			]
-		},
-		{
 			"title": "Completion",
 			"description": "zsh is known for its powerful completion system. However it must be enabled. You probably want this.",
 			"type": "radio",
@@ -26,78 +11,6 @@
 				},
 				{
 					"name": "Leave completion disabled",
-					"code": null
-				}
-			]
-		},
-		{
-			"title": "Extended glob",
-			"description": "When extended globs are enabled, the # ~ and ^ characters can also be used for globbing and globbing flags are enabled. While these features are useful, they can be suprising to users used to other shells.",
-			"provides": "extglob",
-			"type": "radio",
-			"options": [
-				{
-					"name": "Disable extended globs",
-					"code": null,
-					"enabled": false
-				},
-				{
-					"name": "Enable extended globs",
-					"code": "setopt EXTENDED_GLOB",
-					"enabled": true
-				}
-			]
-		},
-		{
-			"title": "Extended glob: ^",
-			"description": "The ^ extended glob can be troublesome in particular with <code>git show HEAD^</code>. While <code>git show HEAD~</code> is generally intended, some users prefer to disable the ^ glob.",
-			"requires": "extglob",
-			"type": "radio",
-			"options": [
-				{
-					"name": "Leave ^ enabled",
-					"code": null
-				},
-				{
-					"name": "Disable ^ for extended globbing",
-					"code": "disable -p '^'"
-				}
-			]
-		},
-		{
-			"title": "Nomatch",
-			"description": "By default zsh will error if a glob has no matches. This is the safest course of action as globs that should be passed literally into commands should be quoted. However it does differ from the bash behavior to pass globs through on no match.",
-			"type": "radio",
-			"options": [
-				{
-					"name": "Error if a glob has no matches",
-					"code": null
-				},
-				{
-					"name": "Pass the glob though as is if there are no matches",
-					"code": "setopt NO_NOMATCH"
-				},
-				{
-					"name": "Omit a glob if it has no matches, but error if all globs have no matches",
-					"code": "setopt CSH_NULL_GLOB"
-				},
-				{
-					"name": "Omit a glob if it has no matches",
-					"code": "setopt NULL_GLOB"
-				}
-			]
-		},
-		{
-			"title": "Clobbering",
-			"description": "By default redirections can overwrite existing files which can cause unintentional loss of data. Disabling the clobber option makes zsh error on these redirections unless <code>&gt;|</code> is used.",
-			"type": "radio",
-			"options": [
-				{
-					"name": "Error on a redirections which would overwrite an existing file",
-					"code": "setopt NO_CLOBBER"
-				},
-				{
-					"name": "Allow redirections to overwrite existing files",
 					"code": null
 				}
 			]
@@ -184,8 +97,95 @@
 					"code": "setopt SHARE_HISTORY"
 				},
 				{
-					"name": "Append history items to not overwrite other terminal's history",
+					"name": "Append history items when the shell exits",
 					"code": "setopt APPEND_HISTORY"
+				}
+			]
+		},
+		{
+			"title": "Extended glob",
+			"description": "When extended globs are enabled, the # ~ and ^ characters can also be used for globbing and globbing flags are enabled. While these features are useful, they can be suprising to users used to other shells.",
+			"provides": "extglob",
+			"type": "radio",
+			"options": [
+				{
+					"name": "Leave extended globs disabled",
+					"code": null,
+					"enabled": false
+				},
+				{
+					"name": "Enable extended globs",
+					"code": "setopt EXTENDED_GLOB",
+					"enabled": true
+				}
+			]
+		},
+		{
+			"title": "Extended glob: ^",
+			"description": "The ^ extended glob can be troublesome in particular with <code>git show HEAD^</code>. While <code>git show HEAD~</code> is generally intended, some users prefer to disable the ^ glob.",
+			"requires": "extglob",
+			"type": "radio",
+			"options": [
+				{
+					"name": "Leave ^ enabled",
+					"code": null
+				},
+				{
+					"name": "Disable ^ for extended globbing",
+					"code": "disable -p '^'"
+				}
+			]
+		},
+		{
+			"title": "Nomatch",
+			"description": "By default zsh will error if a glob has no matches. This is the safest course of action as globs that should be passed literally into commands should be quoted. However it does differ from the bash behavior to pass globs through on no match.",
+			"type": "radio",
+			"options": [
+				{
+					"name": "Error if a glob has no matches",
+					"code": null
+				},
+				{
+					"name": "Pass the glob though as is if there are no matches",
+					"code": "setopt NO_NOMATCH"
+				},
+				{
+					"name": "Omit a glob if it has no matches, but error if all globs have no matches",
+					"code": "setopt CSH_NULL_GLOB"
+				},
+				{
+					"name": "Omit a glob if it has no matches",
+					"code": "setopt NULL_GLOB"
+				}
+			]
+		},
+		{
+			"title": "Keymap",
+			"description": "The keymap sets the default key bindings. Unless you know you prefer vi keybindings in your shell, you should choose emacs (even if you use vi(m)).",
+			"type": "radio",
+			"options": [
+				{
+					"name": "Emacs keybindings",
+					"code": "bindkey -e"
+				},
+				{
+					"name": "Vi keybindings",
+					"code": "bindkey -v"
+				}
+			]
+		},
+		{
+			"title": "Clobbering",
+			"description": "By default redirections can overwrite existing files which can cause unintentional loss of data. Disabling the clobber option makes zsh error on these redirections unless <code>&gt;|</code> is used.",
+			"type": "radio",
+			"options": [
+				{
+					"name": "Error on a redirections which would overwrite an existing file",
+					"code": "setopt NO_CLOBBER"
+				},
+				{
+					"name": "Allow redirections to overwrite existing files",
+					"code": null
 				}
 			]
 		},
@@ -199,7 +199,7 @@
 					"code": "setopt NO_MULTIOS"
 				},
 				{
-					"name": "Enable multios",
+					"name": "Leave multios enabled",
 					"code": null
 				}
 			]
