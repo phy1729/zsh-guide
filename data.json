@@ -103,7 +103,7 @@
 		},
 		{
 			"title": "History: space prefix",
-			"description": "On occasion you may want to exclude a single event from history. With the hist ignore space option enabled, you can start the command with a space and the command will not be saved. (It will be kept in memory until the next command is entered in case you made a typo and need to edit the line. It will disappear after that.)",
+			"description": "On occasion you may want to exclude a single event from history. With this option you can start the command with a space and the command will not be saved. (It will be kept in memory until the next command is entered in case you made a typo and need to edit the line. It will disappear after that.)",
 			"requires": "history",
 			"type": "radio",
 			"options": [
@@ -276,7 +276,7 @@
 		},
 		{
 			"title": "Clobbering",
-			"description": "By default redirections can overwrite existing files which can cause unintentional loss of data. Disabling the clobber option makes zsh error on these redirections unless <code>&gt;|</code> is used.",
+			"description": "By default redirections can overwrite existing files which can cause unintentional loss of data. zsh can instead error on these redirections unless <code>&gt;|</code> is used.",
 			"type": "radio",
 			"options": [
 				{
@@ -291,7 +291,7 @@
 		},
 		{
 			"title": "Multios",
-			"description": "Multios is a zsh feature where if a command has multiple output redirections, the command's output is copied to each rather than just the last one. Similarly for input redirections, each input is read in turn. This option often results in suprising and hard to diagnose effects.",
+			"description": "Multios is a zsh feature where if a command has multiple output redirections, the command's output is copied to each rather than just the last one. Similarly for input redirections, each input is read in turn. This option often results in surprising and hard to diagnose effects.",
 			"type": "radio",
 			"options": [
 				{
