@@ -11,6 +11,10 @@
 			div#wrapper {
 			}
 
+			h1 {
+				text-align: center;
+			}
+
 			div.choice {
 				margin: 20px;
 				border: 1px solid #00bbff;
@@ -49,6 +53,19 @@
 	</head>
 	<body onload="init();">
 		<div id="wrapper">
+			<h1>.zshrc Generator</h1>
+			<p>
+				zsh is a very configurable shell, but the myriad of configuration options is overwhelming to most.
+				Below is a .zshrc generator that should hit the most important knobs without going too into the weeds.
+				When in doubt the first option is generally acceptable.
+			</p>
+			<p>
+				The last box is the generated .zshrc which should be copied into .zshrc in your home directory.
+			</p>
+			<p>
+				Naturally this generator omits most options and context specific configurability.
+				For more details see <a href="https://zsh.sourceforge.io/Doc/Release/Options.html"><code>man zshoptions</code></a> for more on options and <a href="https://zsh.sourceforge.io/Doc/Release/Completion-System.html"><code>man zshcompsys</code></a> for more on completion system styles.
+			</p>
 			<form id="form"></form>
 			<pre id="out" onclick="select_out()"></pre>
 		</div>
