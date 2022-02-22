@@ -3,14 +3,69 @@
 		{
 			"title": "Completion",
 			"description": "zsh is known for its powerful completion system. However it must be enabled. You probably want this.",
+			"provides": "completion",
 			"type": "radio",
 			"options": [
 				{
 					"name": "Enable completion",
-					"code": "autoload -Uz compinit && compinit"
+					"code": "autoload -Uz compinit && compinit",
+					"enabled": true
 				},
 				{
 					"name": "Leave completion disabled",
+					"code": null,
+					"enabled": false
+				}
+			]
+		},
+		{
+			"title": "Completion: case sensitivity",
+			"description": "When matching what you have typed to possible completions, zsh can ignore the case of what has been typed.",
+			"requires": "completion",
+			"type": "radio",
+			"options": [
+				{
+					"name": "Match case sensitively",
+					"code": null
+				},
+				{
+					"name": "Let lowercase match uppercase",
+					"code": "zstyle ':completion:*' matcher-list m:{[:lower:]}={[:upper:]}"
+				},
+				{
+					"name": "Ignore case in completions",
+					"code": "zstyle ':completion:*' matcher-list m:{[:lower:][:upper:]}={[:upper:][:lower:]}"
+				}
+			]
+		},
+		{
+			"title": "Completion: color files",
+			"description": "When completing files, the suggestions can be colored similar to ls with LS_COLORS.",
+			"requires": "completion",
+			"type": "radio",
+			"options": [
+				{
+					"name": "Leave file completions uncolored",
+					"code": null
+				},
+				{
+					"name": "Color file completions",
+					"code": "zstyle ':completion:*' list-colors ''"
+				}
+			]
+		},
+		{
+			"title": "Completion: group suggestions",
+			"description": "Completion suggestions can be grouped by the type of suggestion offered.",
+			"requires": "completion",
+			"type": "radio",
+			"options": [
+				{
+					"name": "Group completions by type",
+					"code": "zstyle ':completion:*' group-name ''\nzstyle ':completion:*' format '%B%d%b'"
+				},
+				{
+					"name": "Do not group completions",
 					"code": null
 				}
 			]
@@ -160,6 +215,51 @@
 			]
 		},
 		{
+			"title": "Autocd",
+			"description": "If a command does not exist, check if it is the name of a directory and cd into it.",
+			"type": "radio",
+			"options": [
+				{
+					"name": "Leave autocd disabled",
+					"code": null
+				},
+				{
+					"name": "Enable autocd",
+					"code": "setopt AUTO_CD"
+				}
+			]
+		},
+		{
+			"title": "Beep",
+			"description": "zsh may beep when completion is ambiguous or on input errors. Some users prefer to silence the beep.",
+			"type": "radio",
+			"options": [
+				{
+					"name": "Leave beep enabled",
+					"code": null
+				},
+				{
+					"name": "Disable beeping",
+					"code": "setopt NO_BEEP"
+				}
+			]
+		},
+		{
+			"title": "Interactive comments",
+			"description": "By default comments are not enabled during interactive use. Some users prefer to allow comments to make copy pasting code easier.",
+			"type": "radio",
+			"options": [
+				{
+					"name": "Recognize comments on the command line",
+					"code": "setopt INTERACTIVE_COMMENTS"
+				},
+				{
+					"name": "Leave comments off during interactive use",
+					"code": null
+				}
+			]
+		},
+		{
 			"title": "Keymap",
 			"description": "The keymap sets the default key bindings. Unless you know you prefer vi keybindings in your shell, you should choose emacs (even if you use vi(m)).",
 			"type": "radio",
@@ -200,6 +300,21 @@
 				},
 				{
 					"name": "Leave multios enabled",
+					"code": null
+				}
+			]
+		},
+		{
+			"title": "Flow Control",
+			"description": "Flow control is a shell feature that allows a user to stop and restart output via Ctrl-s and Ctrl-q. This feature is rarely used in modern terminals and often surprises users who hit Ctrl-s as the terminal appears to freeze.",
+			"type": "radio",
+			"options": [
+				{
+					"name": "Disable flow control",
+					"code": "setopt NO_FLOW_CONTROL"
+				},
+				{
+					"name": "Leave flow control enabled",
 					"code": null
 				}
 			]
