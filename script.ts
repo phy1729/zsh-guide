@@ -112,14 +112,13 @@ function update() {
 		if (choice.type == "number") {
 			const input = document.querySelector(`input[name="${choice_idx}"]`) as HTMLInputElement;
 			value += choice.code.replace(/{}/g, input.value);
-			value += "\n";
+			value += "\n\n";
 
 		} else if (choice.type == "radio") {
 			const selected_input = document.querySelector(`input[name="${choice_idx}"]:checked`) as HTMLInputElement;
 			const chosen_option = choice.options[parseInt(selected_input.value)];
 			if (chosen_option.code != null) {
-				value += chosen_option.code;
-				value += "\n";
+				value += `# ${chosen_option.name}\n${chosen_option.code}\n\n`;
 			}
 
 			if (choice.provides) {
