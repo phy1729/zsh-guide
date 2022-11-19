@@ -1,0 +1,28 @@
+---
+name: GitHub Pages deploy
+on: push
+
+jobs:
+  build:
+    permissions: {}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - run: npx tsc
+      - run: mkdir _site
+      - run: cp data.json index.html script.js _site
+      - uses: actions/upload-pages-artifact@v1
+
+  deploy:
+    if: github.ref == 'refs/heads/master'
+    needs: build
+    permissions:
+      id-token: write
+      pages: write
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v1
